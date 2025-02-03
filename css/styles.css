@@ -4193,26 +4193,56 @@ td:last-child {
     margin-bottom: var(--vspace-0_75);
 }
 
+/* General adjustments for the Projects section */
+.counter-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adds spacing between project cards */
+    justify-content: center; /* Centers the cards */
+}
+
 .counter-items__item {
-    flex         : none;
-    width        : 50%;
-    
+    flex: 1 1 calc(50% - 40px); /* 2 columns on desktop */
+    max-width: calc(50% - 40px); /* Ensures cards don't grow too large */
+    box-sizing: border-box; /* Prevents overflow */
+    padding: 15px;
+    border: 1px solid #ddd; /* Optional: Adds a border for better visual separation */
+    border-radius: 8px; /* Optional: Rounded corners */
+    text-align: center; /* Centers text */
 }
 
-.counter-items .num {
-    display       : inline-flex;
-    align-items   : center;
-    font-family   : var(--font-1);
-    font-weight   : 700;
-    font-size     : var(--text-huge-3);
-    letter-spacing: -0.035em;
-    line-height   : 1;
-    color         : var(--color-3-dark);
+/* Adjustments for tablets */
+@media (max-width: 1024px) {
+    .counter-items__item {
+        flex: 1 1 calc(50% - 40px); /* 2 columns on tablets */
+        max-width: calc(50% - 40px);
+    }
 }
 
-.counter-items span {
-    font-size  : 0.5em;
-    margin-left: 0.1em;
+/* Adjustments for mobile devices */
+@media (max-width: 768px) {
+    .counter-items__item {
+        flex: 1 1 100%; /* 1 column on mobile */
+        max-width: 100%;
+    }
+
+    .photos img {
+        height: auto; /* Ensures images scale properly */
+        width: 100%; /* Full width for mobile */
+    }
+
+    .project_title {
+        font-size: 1.2em; /* Adjust title size for mobile */
+    }
+
+    .project_brief {
+        font-size: 0.9em; /* Adjust text size for mobile */
+    }
+
+    .button-link {
+        width: 100%; /* Full-width buttons on mobile */
+        padding: 10px; /* Adds padding for better touch interaction */
+    }
 }
 
 
@@ -4565,8 +4595,8 @@ td:last-child {
 .project_brief{
     font-size: 15px;
     text-align: justify;
-    margin-top: 5px;
-   height: 140px;
+    margin-top: 15px;
+    height: 140px;
 }
 
 .photos{
@@ -4575,8 +4605,9 @@ td:last-child {
 }
 
 .project_title{
-    margin-top: 15px;
-    height: 20px;
+    margin-top: 20px;
+    height: 30px;
+    text-align: left;
 }
 
 .clickable-div {
